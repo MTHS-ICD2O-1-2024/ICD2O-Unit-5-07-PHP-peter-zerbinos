@@ -30,25 +30,16 @@
       <div class="right-image">
         <img src="./images/sum_of_numbers_formula.png" alt="Formula" />
       </div>
-      <div class="page-content">Please enter in a number and it add up the sum of all the numbers before it.</div>
-      <br />
-      <!-- Simple Textfield for integers-->
-      <form action="answer.php" method="GET">
-        <div class="mdl-textfield mdl-js-textfield">
-          <!-- input pattern attribute -->
-          <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="user-number" />
-          <!-- mdl-textfield__label -->
-          <label class="mdl-textfield__label" for="demo-input">Number...</label>
-          <!-- class "mdl-textfield__error" -->
-          <span class="mdl-textfield__error">Input is not a number</span>
-        </div>
-        <br />
-        <!-- Accent-colored raised button with ripple -->
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-          type="submit">
-          Calculate
-        </button>
-      </form>
+      <?php
+      $userNumber = $_GET["user-number"];
+      $sumOfNumbers = 0;
+
+      for ($counter = $userNumber; $counter > 0; $counter--) {
+        $sumOfNumbers += $counter;
+      }
+
+      echo "The sum of all the natural numbers up to " . $userNumber . " is " . $sumOfNumbers . ".";
+      ?>
     </main>
   </div>
 </body>
